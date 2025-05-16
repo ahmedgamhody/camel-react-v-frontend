@@ -1,4 +1,4 @@
-import { useState, FormEvent, useRef, useEffect } from "react";
+import { useState, FormEvent } from "react";
 import { toast } from "react-hot-toast";
 import { Message } from "../../interfaces";
 import { askTasks, askDocx, uploadDocx } from "../../utils/api";
@@ -13,7 +13,7 @@ export default function ChatCursor() {
   const [isUploading, setIsUploading] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [hasUploadedDocs, setHasUploadedDocs] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  // const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -81,10 +81,6 @@ export default function ChatCursor() {
     }
   };
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
   return (
     <div className="flex flex-col h-full bg-white">
       <ChatHeader />
@@ -96,7 +92,6 @@ export default function ChatCursor() {
             isSending={isSending}
             hasUploadedDocs={hasUploadedDocs}
           />
-          <div ref={messagesEndRef} />
 
           <div className="border-t p-4">
             <div className="flex gap-2">
