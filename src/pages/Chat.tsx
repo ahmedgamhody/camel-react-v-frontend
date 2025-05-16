@@ -1,9 +1,8 @@
-import ChatBox from "../components/chat/ChatBox";
+import ChatCursor from "../components/chat/ChatCursor";
 
-const ChatPage: React.FC = () => {
+const ChatPage = () => {
   return (
     <div className="flex h-screen">
-      {/* Sidebar */}
       <aside className="w-[250px] bg-gray-800 text-white p-4">
         <h2 className="text-xl font-bold mb-4">Sidebar</h2>
         <ul className="space-y-2">
@@ -13,9 +12,8 @@ const ChatPage: React.FC = () => {
         </ul>
       </aside>
 
-      {/* Chat Box */}
       <main className="flex-1 bg-gray-100">
-        <ChatBox />
+        <ChatCursor />
       </main>
     </div>
   );

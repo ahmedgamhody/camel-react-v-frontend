@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { AskDocxRequest, AskTasksRequest } from "../interfaces";
+import { AskDocxRequest, QuestionPayload } from "../interfaces";
 
 const BASE_URL = import.meta.env.BASE_URL;
 
@@ -26,7 +26,7 @@ api.interceptors.response.use(
   }
 );
 
-export const askTasks = (data: AskTasksRequest) => api.post("/asktasks", data);
+export const askTasks = (data: QuestionPayload) => api.post("/asktasks", data);
 
 export const askDocx = (data: AskDocxRequest) => api.post("/askdocx", data);
 
